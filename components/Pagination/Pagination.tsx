@@ -12,14 +12,14 @@ export default function Pagination({
   totalPages,
   onChange,
 }: PaginationProps) {
-  if (totalPages <= 1) return null;
+  if (totalPages <= 1) return null; 
 
   return (
     <ReactPaginate
       pageCount={totalPages}
       pageRangeDisplayed={5}
       marginPagesDisplayed={1}
-      onPageChange={(event: { selected: number }) => onChange(event.selected + 1)}
+      onPageChange={({ selected }) => onChange(selected + 1)}
       forcePage={page - 1}
       containerClassName={css.pagination}
       activeClassName={css.active}

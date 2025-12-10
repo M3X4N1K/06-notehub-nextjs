@@ -9,7 +9,7 @@ export default function Footer() {
       <p>Developer: Oleksii M3X4N1K</p>
       <p>
         Contact us: 
-        <a href="mailto:ejik.alex@gmail.com"> ejik.alex@gmail.com</a>
+        <a href="mailto:ejik.alex9294@gmail.com"> ejik.alex@gmail.com</a>
       </p>
     </div>
   </div>

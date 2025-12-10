@@ -3,8 +3,8 @@ import type { FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import css from './NoteForm.module.css';
-import { createNote } from '../../services/noteService';
-import type { CreateNotePayload } from '../../services/noteService';
+import { createNote } from '@/lib/api';
+import type { CreateNotePayload } from '@/lib/api';
 import type { NoteTag } from '../../types/note';
 
 interface NoteFormProps {
