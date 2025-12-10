@@ -15,7 +15,9 @@ const api = axios.create({
 
 // Додаємо токен перед кожним запитом
 api.interceptors.request.use((config) => {
-  config.headers.Authorization = `Bearer ${getToken()}`;
+  const token = getToken();
+  config.headers = config.headers || {};
+  config.headers.Authorization = `Bearer ${token}`;
   return config;
 });
 
@@ -37,7 +39,7 @@ export interface CreateNotePayload {
 }
 
 export async function fetchNotes(
-  params: FetchNotesParams,
+  params: FetchNotesParams
 ): Promise<FetchNotesResponse> {
   const { page = 1, perPage = 12, search } = params;
 
@@ -49,7 +51,7 @@ export async function fetchNotes(
 }
 
 export async function createNote(
-  payload: CreateNotePayload,
+  payload: CreateNotePayload
 ): Promise<Note> {
   const { data } = await api.post<Note>('/notes', payload);
   return data;
@@ -62,4 +64,5 @@ export async function deleteNote(id: string): Promise<Note> {
 
 export async function fetchNoteById(id: string): Promise<Note> {
   const { data } = await api.get<Note>(`/notes/${id}`);
-  return
+  return data;
+}
